@@ -10,10 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
-  m_Name: Event4
+  m_Name: Event2
   m_EditorClassIdentifier: 
-  speakerName: "Jos\xE9"
-  text: Ah sla mano
+  speakerName: Sla
+  text: Outro evento da tarde
   choices:
-  - {fileID: 11400000, guid: c0075f838acde9f45abb89fa696e85bf, type: 2}
-  - {fileID: 11400000, guid: 4301010feb81c32448643e517cf6415d, type: 2}
+  - text: a
+    influence:
+      remedy: 0
+      food: 0
+      water: 0
+      satisfaction: 0
+  - text: b
+    influence:
+      remedy: 0
+      food: 0
+      water: 0
+      satisfaction: 0
