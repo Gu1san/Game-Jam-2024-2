@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -16,6 +17,8 @@ public class UIManager : MonoBehaviour
     public Slider waterSlider;
     public Slider remedySlider;
     public Slider satisfactionSlider;
+    public Image img;
+    public AnimationCurve curve;
 
     private void Awake()
     {
@@ -50,6 +53,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateDayInfo()
     {
+        StartCoroutine(FadeOut());
         dayText.text = "Dia " + GameManager.Instance.currentDay.ToString();
         switch ((int)GameManager.Instance.DayMoment)
         {
@@ -63,6 +67,7 @@ public class UIManager : MonoBehaviour
                 dayMomentText.text = "Noite";
                 break;
         }
+        StartCoroutine(FadeIn());
     }
 
     public void UpdateSliders()
@@ -92,6 +97,32 @@ public class UIManager : MonoBehaviour
             remedySlider.value = Mathf.Lerp(startRemedy, newValues[2], t);
             satisfactionSlider.value = Mathf.Lerp(startSatisfaction, newValues[3], t);
             yield return null;
+        }
+    }
+
+    IEnumerator FadeIn()
+    {
+        float t = 2f;
+
+        while (t > 0f)
+        {
+            t -= Time.deltaTime;
+            float a = curve.Evaluate(t);
+            img.color = new Color(0f, 0f, 0f, a);
+            yield return 0;
+        }
+    }
+
+    IEnumerator FadeOut()
+    {
+        float t = 0f;
+
+        while (t < 2f)
+        {
+            t += Time.deltaTime;
+            float a = curve.Evaluate(t);
+            img.color = new Color(0f, 0f, 0f, a);
+            yield return 0;
         }
     }
 }
