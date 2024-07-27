@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
         {
             DayMoment++;
         }
+        UIManager.Instance.UpdateDayInfo();
         GetNewEvent();
     }
 

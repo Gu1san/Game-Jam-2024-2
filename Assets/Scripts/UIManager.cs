@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
     [SerializeField] TMP_Text speakerName;
     [SerializeField] TMP_Text eventText;
+    [SerializeField] TMP_Text dayText;
+    [SerializeField] TMP_Text dayMomentText;
     [SerializeField] ChoicePrefab[] displayChoices;
     public Slider foodSlider;
     public Slider waterSlider;
@@ -18,6 +20,11 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        UpdateDayInfo();
     }
 
     public void ShowEvent(Event eventSO)
@@ -38,6 +45,23 @@ public class UIManager : MonoBehaviour
         foreach(ChoicePrefab choice in displayChoices)
         {
             choice.gameObject.SetActive(false);
+        }
+    }
+
+    public void UpdateDayInfo()
+    {
+        dayText.text = "Dia " + GameManager.Instance.currentDay.ToString();
+        switch ((int)GameManager.Instance.DayMoment)
+        {
+            case 0:
+                dayMomentText.text = "Manhã";
+                break;
+            case 1:
+                dayMomentText.text = "Tarde";
+                break;
+            case 2:
+                dayMomentText.text = "Noite";
+                break;
         }
     }
 
