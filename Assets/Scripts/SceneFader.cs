@@ -8,6 +8,26 @@ public class SceneFader : MonoBehaviour
     public Image img;
     public AnimationCurve curve;
 
+    private void OnLevelWasLoaded()
+    {
+        StartCoroutine(FadeIn());
+    }
+
+    public void FadeTo(int scene)
+    {
+        StartCoroutine(FadeOut(scene));
+    }
+
+    public void FadeInScene()
+    {
+        StartCoroutine(FadeIn());
+    }
+
+    public void FadeOut()
+    {
+        StartCoroutine(FadeOut(-1));
+    }
+
     IEnumerator FadeIn()
     {
         float t = 1f;
@@ -32,7 +52,7 @@ public class SceneFader : MonoBehaviour
             img.color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
-
-        SceneManager.LoadScene(scene);
+        if (scene >= 0)
+            SceneManager.LoadScene(scene);
     }
 }

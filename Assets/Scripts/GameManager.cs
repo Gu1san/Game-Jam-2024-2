@@ -71,6 +71,10 @@ public class GameManager : MonoBehaviour
         CurrentRemedy = Mathf.Clamp(CurrentRemedy + influence.remedy, 0, MaxRemedy);
         CurrentWater = Mathf.Clamp(CurrentWater + influence.water, 0, MaxWater);
         UIManager.Instance.UpdateSliders();
+        if(CurrentFood <= 0 || CurrentWater <= 0 || CurrentRemedy <= 0 || CurrentSatisfaction <= 0)
+        {
+            UIManager.Instance.GameOver();
+        }
         UIManager.Instance.HideEvent();
         NextEvent();
     }

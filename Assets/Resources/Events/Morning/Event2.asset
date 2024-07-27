@@ -19,7 +19,7 @@ MonoBehaviour:
     influence:
       remedy: 10
       food: 40
-      water: -30
+      water: -50
       satisfaction: -15
   - text: b
     influence:

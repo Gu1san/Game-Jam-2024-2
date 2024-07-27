@@ -15,12 +15,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text reportText;
     [SerializeField] ChoicePrefab[] displayChoices;
     [SerializeField] GameObject reportPanel;
+    [SerializeField] GameObject gameOverPanel;
     public Slider foodSlider;
     public Slider waterSlider;
     public Slider remedySlider;
     public Slider satisfactionSlider;
-    public Image img;
-    public AnimationCurve curve;
+    SceneFader fader;
 
     private void Awake()
     {
@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        fader = GetComponent<SceneFader>();
         UpdateDayInfo();
     }
 
@@ -55,14 +56,13 @@ public class UIManager : MonoBehaviour
 
     public void ShowReport()
     {
-        StartCoroutine(FadeOut());
+        fader.FadeOut();
         float foodDiference = GameManager.Instance.CurrentFood - GameManager.Instance.lastStatus.food;
         float waterDiference = GameManager.Instance.CurrentWater - GameManager.Instance.lastStatus.water;
         float remedyDiference = GameManager.Instance.CurrentRemedy - GameManager.Instance.lastStatus.remedy;
         float satisfactionDiference = GameManager.Instance.CurrentSatisfaction - GameManager.Instance.lastStatus.satisfaction;
         reportText.text = $"{foodDiference}\n{waterDiference}\n{remedyDiference}\n{satisfactionDiference}";
         reportPanel.SetActive(true);
-        //StartCoroutine(FadeIn());
     }
 
     public void CloseReport()
@@ -75,7 +75,10 @@ public class UIManager : MonoBehaviour
 
     public void UpdateDayInfo()
     {
-        StartCoroutine(FadeOut());
+        if(GameManager.Instance.CurrentDay != 1 || GameManager.Instance.DayMoment != 0)
+        {
+            fader.FadeOut();
+        }
         dayText.text = "Dia " + GameManager.Instance.CurrentDay.ToString();
         switch ((int)GameManager.Instance.DayMoment)
         {
@@ -89,7 +92,7 @@ public class UIManager : MonoBehaviour
                 dayMomentText.text = "Noite";
                 break;
         }
-        StartCoroutine(FadeIn());
+        fader.FadeInScene();
     }
 
     public void UpdateSliders()
@@ -101,6 +104,11 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.CurrentSatisfaction / GameManager.Instance.MaxSatisfaction
         };
         StartCoroutine(UpdateSlidersSmoothly(newValues));
+    }
+
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
     }
 
     IEnumerator UpdateSlidersSmoothly(float[] newValues)
@@ -119,32 +127,6 @@ public class UIManager : MonoBehaviour
             remedySlider.value = Mathf.Lerp(startRemedy, newValues[2], t);
             satisfactionSlider.value = Mathf.Lerp(startSatisfaction, newValues[3], t);
             yield return null;
-        }
-    }
-
-    IEnumerator FadeIn()
-    {
-        float t = 2f;
-
-        while (t > 0f)
-        {
-            t -= Time.deltaTime;
-            float a = curve.Evaluate(t);
-            img.color = new Color(0f, 0f, 0f, a);
-            yield return 0;
-        }
-    }
-
-    IEnumerator FadeOut()
-    {
-        float t = 0f;
-
-        while (t < 2f)
-        {
-            t += Time.deltaTime;
-            float a = curve.Evaluate(t);
-            img.color = new Color(0f, 0f, 0f, a);
-            yield return 0;
         }
     }
 }
