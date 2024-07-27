@@ -12,7 +12,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text eventText;
     [SerializeField] TMP_Text dayText;
     [SerializeField] TMP_Text dayMomentText;
+    [SerializeField] TMP_Text reportText;
     [SerializeField] ChoicePrefab[] displayChoices;
+    [SerializeField] GameObject reportPanel;
     public Slider foodSlider;
     public Slider waterSlider;
     public Slider remedySlider;
@@ -51,10 +53,30 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ShowReport()
+    {
+        StartCoroutine(FadeOut());
+        float foodDiference = GameManager.Instance.CurrentFood - GameManager.Instance.lastStatus.food;
+        float waterDiference = GameManager.Instance.CurrentWater - GameManager.Instance.lastStatus.water;
+        float remedyDiference = GameManager.Instance.CurrentRemedy - GameManager.Instance.lastStatus.remedy;
+        float satisfactionDiference = GameManager.Instance.CurrentSatisfaction - GameManager.Instance.lastStatus.satisfaction;
+        reportText.text = $"{foodDiference}\n{waterDiference}\n{remedyDiference}\n{satisfactionDiference}";
+        reportPanel.SetActive(true);
+        //StartCoroutine(FadeIn());
+    }
+
+    public void CloseReport()
+    {
+        reportPanel.SetActive(false);
+        reportText.text = "";
+        UpdateDayInfo();
+        GameManager.Instance.GetNewEvent();
+    }
+
     public void UpdateDayInfo()
     {
         StartCoroutine(FadeOut());
-        dayText.text = "Dia " + GameManager.Instance.currentDay.ToString();
+        dayText.text = "Dia " + GameManager.Instance.CurrentDay.ToString();
         switch ((int)GameManager.Instance.DayMoment)
         {
             case 0:
@@ -73,10 +95,10 @@ public class UIManager : MonoBehaviour
     public void UpdateSliders()
     {
         float[] newValues = {
-            GameManager.Instance.currentFood / GameManager.Instance.maxFood,
-            GameManager.Instance.currentWater / GameManager.Instance.maxWater,
-            GameManager.Instance.currentRemedy / GameManager.Instance.maxRemedy,
-            GameManager.Instance.currentSatisfaction / GameManager.Instance.maxSatisfaction
+            GameManager.Instance.CurrentFood / GameManager.Instance.MaxFood,
+            GameManager.Instance.CurrentWater / GameManager.Instance.MaxWater,
+            GameManager.Instance.CurrentRemedy / GameManager.Instance.MaxRemedy,
+            GameManager.Instance.CurrentSatisfaction / GameManager.Instance.MaxSatisfaction
         };
         StartCoroutine(UpdateSlidersSmoothly(newValues));
     }

@@ -17,10 +17,10 @@ MonoBehaviour:
   choices:
   - text: a
     influence:
-      remedy: 0
-      food: 0
-      water: 0
-      satisfaction: 0
+      remedy: 10
+      food: 40
+      water: -30
+      satisfaction: -15
   - text: b
     influence:
       remedy: 0

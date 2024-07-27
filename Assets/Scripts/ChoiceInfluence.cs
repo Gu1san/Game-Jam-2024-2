@@ -1,8 +1,8 @@
 [System.Serializable]
 public class ChoiceInfluence
 {
-    public int remedy;
-    public int food;
-    public int water;
-    public int satisfaction;
+    public float remedy;
+    public float food;
+    public float water;
+    public float satisfaction;
 }

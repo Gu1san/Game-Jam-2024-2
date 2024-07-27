@@ -11,21 +11,28 @@ public class GameManager : MonoBehaviour
         Evening,
         Night
     }
-    public float maxFood { get; private set; } = 100;
-    public float currentFood { get; private set; }
-    public float maxWater { get; private set; } = 100;
-    public float currentWater { get; private set; }
-    public float maxSatisfaction { get; private set; } = 100;
-    public float currentSatisfaction { get; private set; }
-    public float maxRemedy { get; private set; } = 100;
-    public float currentRemedy { get; private set; }
-    public int currentDay { get; private set; } = 1;
+    public float MaxFood { get; private set; } = 100;
+    public float CurrentFood { get; private set; }
+    public float MaxWater { get; private set; } = 100;
+    public float CurrentWater { get; private set; }
+    public float MaxSatisfaction { get; private set; } = 100;
+    public float CurrentSatisfaction { get; private set; }
+    public float MaxRemedy { get; private set; } = 100;
+    public float CurrentRemedy { get; private set; }
+    public int CurrentDay { get; private set; } = 1;
 
     [SerializeField] Event currentEvent;
 
     readonly Object[][] events = new Object[3][];
 
     public DayMoments DayMoment { get; private set; }
+
+    public ChoiceInfluence lastStatus { get; private set; } = new() {
+        food = 50,
+        water = 50,
+        remedy = 50,
+        satisfaction = 50
+    };
 
     private void Awake()
     {
@@ -34,12 +41,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        DayMoment = DayMoments.Morning;
         GetEvents();
-        currentFood = 50;
-        currentWater = 50;
-        currentRemedy = 50;
-        currentSatisfaction = 50;
+        CurrentFood = 50;
+        CurrentWater = 50;
+        CurrentRemedy = 50;
+        CurrentSatisfaction = 50;
+        StartNewDay();
         UIManager.Instance.UpdateSliders();
         GetNewEvent();
     }
@@ -59,10 +66,10 @@ public class GameManager : MonoBehaviour
     public void ChoiceWasMade(EventChoice choice)
     {
         ChoiceInfluence influence = choice.influence;
-        currentFood = Mathf.Clamp(currentFood + influence.food, 0, maxFood);
-        currentSatisfaction = Mathf.Clamp(currentSatisfaction + influence.satisfaction, 0, maxSatisfaction);
-        currentRemedy = Mathf.Clamp(currentRemedy + influence.remedy, 0, maxRemedy);
-        currentWater = Mathf.Clamp(currentWater + influence.water, 0, maxWater);
+        CurrentFood = Mathf.Clamp(CurrentFood + influence.food, 0, MaxFood);
+        CurrentSatisfaction = Mathf.Clamp(CurrentSatisfaction + influence.satisfaction, 0, MaxSatisfaction);
+        CurrentRemedy = Mathf.Clamp(CurrentRemedy + influence.remedy, 0, MaxRemedy);
+        CurrentWater = Mathf.Clamp(CurrentWater + influence.water, 0, MaxWater);
         UIManager.Instance.UpdateSliders();
         UIManager.Instance.HideEvent();
         NextEvent();
@@ -72,18 +79,33 @@ public class GameManager : MonoBehaviour
     {
         if(DayMoment == DayMoments.Night)
         {
-            DayMoment = DayMoments.Morning;
-            currentDay++;
+            CurrentDay++;
+            StartNewDay();
         }
         else
         {
             DayMoment++;
+            UIManager.Instance.UpdateDayInfo();
+            GetNewEvent();
         }
-        UIManager.Instance.UpdateDayInfo();
-        GetNewEvent();
     }
 
-    private void GetNewEvent()
+    void StartNewDay()
+    {
+        if (CurrentDay > 1)
+        {
+            UIManager.Instance.ShowReport();
+        }
+        DayMoment = DayMoments.Morning;
+        lastStatus = new() { 
+            food = CurrentFood,
+            water = CurrentWater,
+            remedy = CurrentRemedy,
+            satisfaction = CurrentSatisfaction
+        };
+    }
+
+    public void GetNewEvent()
     {
         int index = Random.Range(0, events[(int)DayMoment].Length);
         currentEvent = (Event)events[(int)DayMoment][index];
