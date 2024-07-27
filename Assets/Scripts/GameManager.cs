@@ -44,5 +44,6 @@ public class GameManager : MonoBehaviour
         currentRemedy = Mathf.Clamp(currentRemedy + influence.remedy, 0, maxRemedy);
         currentWater = Mathf.Clamp(currentWater + influence.water, 0, maxWater);
         UIManager.Instance.UpdateSliders();
+        UIManager.Instance.HideEvent();
     }
 }

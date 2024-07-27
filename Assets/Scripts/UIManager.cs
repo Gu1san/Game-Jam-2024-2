@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,9 +43,31 @@ public class UIManager : MonoBehaviour
 
     public void UpdateSliders()
     {
-        foodSlider.value = GameManager.Instance.currentFood / GameManager.Instance.maxFood;
-        waterSlider.value = GameManager.Instance.currentWater / GameManager.Instance.maxWater;
-        remedySlider.value = GameManager.Instance.currentRemedy / GameManager.Instance.maxRemedy;
-        satisfactionSlider.value = GameManager.Instance.currentSatisfaction / GameManager.Instance.maxSatisfaction;
+        float[] newValues = {
+            GameManager.Instance.currentFood / GameManager.Instance.maxFood,
+            GameManager.Instance.currentWater / GameManager.Instance.maxWater,
+            GameManager.Instance.currentRemedy / GameManager.Instance.maxRemedy,
+            GameManager.Instance.currentSatisfaction / GameManager.Instance.maxSatisfaction
+        };
+        StartCoroutine(UpdateSlidersSmoothly(newValues));
+    }
+
+    IEnumerator UpdateSlidersSmoothly(float[] newValues)
+    {
+        float time = 0;
+        float startFood = foodSlider.value;
+        float startWater = waterSlider.value;
+        float startRemedy = remedySlider.value;
+        float startSatisfaction = satisfactionSlider.value;
+        while (time < .5f)
+        {
+            time += Time.deltaTime;
+            float t = time / .5f;
+            foodSlider.value = Mathf.Lerp(startFood, newValues[0], t);
+            waterSlider.value = Mathf.Lerp(startWater, newValues[1], t);
+            remedySlider.value = Mathf.Lerp(startRemedy, newValues[2], t);
+            satisfactionSlider.value = Mathf.Lerp(startSatisfaction, newValues[3], t);
+            yield return null;
+        }
     }
 }
