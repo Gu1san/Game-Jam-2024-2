@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
         if(CurrentFood <= 0 || CurrentWater <= 0 || CurrentRemedy <= 0 || CurrentSatisfaction <= 0)
         {
             UIManager.Instance.GameOver();
+            return;
         }
         UIManager.Instance.HideEvent();
         NextEvent();

@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text dayText;
     [SerializeField] TMP_Text dayMomentText;
     [SerializeField] TMP_Text reportText;
+    [SerializeField] TMP_Text gameOverText;
     [SerializeField] ChoicePrefab[] displayChoices;
     [SerializeField] GameObject reportPanel;
     [SerializeField] GameObject gameOverPanel;
@@ -108,6 +109,22 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
+        fader.FadeOut();
+        if(GameManager.Instance.CurrentFood <= 0)
+        {
+            gameOverText.text = "Depois de sua má gestão com os alimentos, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
+        }
+        else if (GameManager.Instance.CurrentWater <= 0)
+        {
+            gameOverText.text = "Depois de sua má gestão com a água do local, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
+        }
+        else if(GameManager.Instance.CurrentRemedy <= 0)
+        {
+            gameOverText.text = "Depois de sua má gestão com os medicamentos, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
+        }else if (GameManager.Instance.CurrentSatisfaction <= 0)
+        {
+            gameOverText.text = "Com a sua falta de tratamento humanitário, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
+        }
         gameOverPanel.SetActive(true);
     }
 
