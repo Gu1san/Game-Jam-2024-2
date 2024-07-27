@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public int CurrentDay { get; private set; } = 1;
 
     [SerializeField] Event currentEvent;
+    [SerializeField] Transform npcSpawn;
 
     readonly Object[][] events = new Object[3][];
 
@@ -60,6 +61,9 @@ public class GameManager : MonoBehaviour
 
     public void StartEvent()
     {
+        GameObject npc = Instantiate(currentEvent.npcModel, npcSpawn.position, npcSpawn.rotation, npcSpawn);
+        npc.GetComponent<Animator>().CrossFade(currentEvent.npcPose, 0);
+        Debug.Log(npc.name);
         UIManager.Instance.ShowEvent(currentEvent);
     }
 
@@ -77,6 +81,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         UIManager.Instance.HideEvent();
+        Destroy(npcSpawn.GetChild(0).gameObject);
         NextEvent();
     }
 

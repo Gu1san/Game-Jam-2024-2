@@ -8,5 +8,7 @@ public class Event : ScriptableObject
     public string speakerName;
     public string text;
     public EventChoice[] choices = new EventChoice[2];
+    public GameObject npcModel;
+    public string npcPose = "Complimenting";
 }
 
