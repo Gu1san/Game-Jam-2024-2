@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f8da7a8326055468832ef319e1fd5c, type: 3}
-  m_Name: New Choice 1
+  m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
+  m_Name: Event2
   m_EditorClassIdentifier: 
-  text: Teste 2
-  influence:
-    remedy: 24
-    food: 0
-    water: -40
-    satisfaction: 0
+  speakerName: "Jos\xE9"
+  text: Ah sla mano
+  choices:
+  - {fileID: 11400000, guid: c0075f838acde9f45abb89fa696e85bf, type: 2}
+  - {fileID: 11400000, guid: 4301010feb81c32448643e517cf6415d, type: 2}

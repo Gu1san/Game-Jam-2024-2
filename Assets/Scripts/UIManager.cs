@@ -41,7 +41,6 @@ public class UIManager : MonoBehaviour
 
     public void UpdateSliders()
     {
-        Debug.Log(GameManager.Instance.currentFood/ GameManager.Instance.maxFood);
         foodSlider.value = GameManager.Instance.currentFood / GameManager.Instance.maxFood;
         waterSlider.value = GameManager.Instance.currentWater / GameManager.Instance.maxWater;
         remedySlider.value = GameManager.Instance.currentRemedy / GameManager.Instance.maxRemedy;

@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Choice", menuName = "Events/New Choice")]
-public class EventChoice : ScriptableObject
+[System.Serializable]
+public class EventChoice
 {
     public string text;
     public ChoiceInfluence influence;
