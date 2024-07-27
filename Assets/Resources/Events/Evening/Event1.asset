@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
+  m_Name: Event1
+  m_EditorClassIdentifier: 
+  speakerName: "Jos\xE9"
+  text: "Este \xE9 um evento da tarde"
+  choices:
+  - text: Teste 1
+    influence:
+      remedy: -40
+      food: 30
+      water: 20
+      satisfaction: 0
+  - text: Teste 2
+    influence:
+      remedy: 0
+      food: 0
+      water: 0
+      satisfaction: 0
