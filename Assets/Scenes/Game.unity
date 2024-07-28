@@ -1782,8 +1782,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2783,8 +2783,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4915,6 +4915,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8f73d9041cc8eef47b6a4fed42240866, type: 3}
   - {fileID: 21300000, guid: 80b902e1dd10dd7408256db64dec8aa1, type: 3}
   - {fileID: 21300000, guid: 2b54cd79b7f902b429d53e537fd70700, type: 3}
+  skyboxes:
+  - {fileID: 2100000, guid: 85cf0b004bc4a654b9e501efcce47902, type: 2}
+  - {fileID: 2100000, guid: c52c5d7968fa6c9499b0b5752f899bfb, type: 2}
+  - {fileID: 2100000, guid: d4454f71d85928744be7771e2143dab7, type: 2}
 --- !u!114 &1419174865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5584,7 +5588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6392157}
+  m_Color: {r: 0.5529412, g: 0.78431374, b: 1, a: 0.6392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6490,7 +6494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentEvent: {fileID: 0}
   npcSpawn: {fileID: 414834441}
-  daysDuration: 3
+  daysDuration: 10
 --- !u!1 &1839124802
 GameObject:
   m_ObjectHideFlags: 0

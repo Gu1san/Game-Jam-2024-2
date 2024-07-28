@@ -66,7 +66,7 @@ ModelImporter:
       takeName: PersonagemArmature.003|Confuse
       internalID: -3899965830752690792
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -182,7 +182,7 @@ ModelImporter:
       takeName: PersonagemArmature.003|Sad
       internalID: 7765705633142132814
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
