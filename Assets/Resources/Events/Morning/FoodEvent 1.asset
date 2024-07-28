@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
+  m_Name: FoodEvent 1
+  m_EditorClassIdentifier: 
+  speakerName: "Auxiliar comunit\xE1rio"
+  text: "Certamente conseguiriamos mais alimentos se fizessemos uma arrecada\xE7\xE3o"
+  choices:
+  - text: Concordo!
+    influence:
+      remedy: 0
+      food: 20
+      water: 10
+      satisfaction: -5
+  - text: "Hm... n\xE3o sei"
+    influence:
+      remedy: 0
+      food: -10
+      water: 0
+      satisfaction: -10
+  npcModel: {fileID: 2470863721718444583, guid: b872a7bebd832ac4ebfab4eb996cf155, type: 3}
+  npcPose: Explaning

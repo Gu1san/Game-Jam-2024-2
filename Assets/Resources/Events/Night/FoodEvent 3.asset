@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
-  m_Name: Event1
+  m_Name: FoodEvent 3
   m_EditorClassIdentifier: 
-  speakerName: "Jo\xE3o"
-  text: "Este \xE9 um evento da manh\xE3"
+  speakerName: "Auxiliar comunit\xE1rio"
+  text: "O rompimento da barragem acabou com nossas planta\xE7\xF5es, seria bom se
+    tivessemos ajuda para reconstru\xED-las"
   choices:
-  - text: Teste 1
+  - text: Vou providenciar
     influence:
-      remedy: 20
-      food: 30
-      water: 0
-      satisfaction: 40
-  - text: Teste 2
+      remedy: -20
+      food: -30
+      water: -20
+      satisfaction: 20
+  - text: "Acho que n\xE3o teremos m\xE3o de obra"
     influence:
-      remedy: 0
-      food: 0
-      water: 0
-      satisfaction: 0
+      remedy: 10
+      food: -30
+      water: 10
+      satisfaction: -20
   npcModel: {fileID: 2470863721718444583, guid: b872a7bebd832ac4ebfab4eb996cf155, type: 3}
-  npcPose: Explaning
+  npcPose: Sad

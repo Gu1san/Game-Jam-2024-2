@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
-  m_Name: Event2
+  m_Name: FoodEvent 2
   m_EditorClassIdentifier: 
-  speakerName: Carlos
-  text: Outro evento da noite
+  speakerName: "Auxiliar comunit\xE1rio"
+  text: "Poderiamos reformar algumas das habita\xE7\xF5es"
   choices:
-  - text: Teste 1
+  - text: Sim
     influence:
-      remedy: 0
-      food: 0
-      water: 0
-      satisfaction: 0
-  - text: Teste 2
+      remedy: -20
+      food: -10
+      water: -10
+      satisfaction: 20
+  - text: "Elas est\xE3o em bom estado"
     influence:
-      remedy: 0
-      food: 0
+      remedy: 10
+      food: 10
       water: 0
-      satisfaction: 0
-  npcModel: {fileID: 4480439119555948796, guid: 0a4a5b6de4b32bf4eb78d417b76f3255, type: 3}
-  npcPose: Complimenting
+      satisfaction: -15
+  npcModel: {fileID: 2470863721718444583, guid: b872a7bebd832ac4ebfab4eb996cf155, type: 3}
+  npcPose: Confused

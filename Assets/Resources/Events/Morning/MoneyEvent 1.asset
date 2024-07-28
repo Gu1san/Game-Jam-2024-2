@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
-  m_Name: Event2
+  m_Name: MoneyEvent 1
   m_EditorClassIdentifier: 
-  speakerName: Sla
-  text: Outro evento da tarde
+  speakerName: Gestor de recursos
+  text: "Nossas planta\xE7\xF5es renderam mais nessa colheita..."
   choices:
-  - text: a
+  - text: Vender o excedente
+    influence:
+      remedy: 20
+      food: -10
+      water: 0
+      satisfaction: -10
+  - text: Estocar o excedente
     influence:
       remedy: 0
-      food: 0
+      food: 20
       water: 0
-      satisfaction: 0
-  - text: b
-    influence:
-      remedy: 0
-      food: 0
-      water: 0
-      satisfaction: 0
-  npcModel: {fileID: 2470863721718444583, guid: b872a7bebd832ac4ebfab4eb996cf155, type: 3}
-  npcPose: Complimenting
+      satisfaction: 10
+  npcModel: {fileID: 7562141382600704459, guid: 61cba7ba993dc3447b4270fae459eeae, type: 3}
+  npcPose: Explaning
