@@ -6,6 +6,7 @@ using UnityEngine;
 public class Event : ScriptableObject
 {
     public string speakerName;
+    [TextArea(1, 5)]
     public string text;
     public EventChoice[] choices = new EventChoice[2];
     public GameObject npcModel;
