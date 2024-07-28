@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
-  m_Name: Event2
+  m_Name: SatisfactionEvent2
   m_EditorClassIdentifier: 
-  speakerName: fbstgbdtb
-  text: "Outro evento da manh\xE3"
+  speakerName: Representante popular
+  text: "Nossa arrecada\xE7\xE3o mensal de mantimentos n\xE3o recebeu muitas doa\xE7\xF5es
+    esse m\xEAs!"
   choices:
-  - text: a
+  - text: Racionar mantimentos
     influence:
       remedy: 10
-      food: 40
-      water: 40
-      satisfaction: 0
-  - text: b
+      food: 20
+      water: -10
+      satisfaction: -20
+  - text: Distribuir mantimentos normalmente
     influence:
-      remedy: 0
-      food: 0
-      water: 0
-      satisfaction: 0
+      remedy: -10
+      food: -20
+      water: -20
+      satisfaction: 10
   npcModel: {fileID: 4480439119555948796, guid: 0a4a5b6de4b32bf4eb78d417b76f3255, type: 3}
-  npcPose: Idea
+  npcPose: Explaning

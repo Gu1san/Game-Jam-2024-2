@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
-  m_Name: Event2
+  m_Name: SatisfactionEvent3
   m_EditorClassIdentifier: 
-  speakerName: Carlos
-  text: Outro evento da noite
+  speakerName: Representante popular
+  text: Uma tempestade nos pegou de surpresa e avariou alguns dos abrigos!
   choices:
-  - text: Teste 1
+  - text: Realocar os moradores durante os reparos
     influence:
-      remedy: 0
-      food: 0
-      water: 0
-      satisfaction: 0
-  - text: Teste 2
+      remedy: -20
+      food: 10
+      water: 10
+      satisfaction: -30
+  - text: realizar os reparos sem realocar os moradores
     influence:
-      remedy: 0
-      food: 0
-      water: 0
-      satisfaction: 0
+      remedy: 20
+      food: -10
+      water: -10
+      satisfaction: -10
   npcModel: {fileID: 4480439119555948796, guid: 0a4a5b6de4b32bf4eb78d417b76f3255, type: 3}
-  npcPose: Complimenting
+  npcPose: Sad

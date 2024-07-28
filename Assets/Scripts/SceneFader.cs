@@ -7,6 +7,7 @@ public class SceneFader : MonoBehaviour
 {
     public Image img;
     public AnimationCurve curve;
+    private bool fadedOut = false;
 
     private void OnLevelWasLoaded()
     {
@@ -39,20 +40,27 @@ public class SceneFader : MonoBehaviour
             img.color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
+        img.raycastTarget = false;
+        fadedOut = false;
     }
 
     IEnumerator FadeOut(int scene)
     {
-        float t = 0f;
-
-        while (t < 1f)
+        if (!fadedOut)
         {
-            t += Time.deltaTime;
-            float a = curve.Evaluate(t);
-            img.color = new Color(0f, 0f, 0f, a);
-            yield return 0;
+            img.raycastTarget = true;
+            float t = 0f;
+
+            while (t < 1f)
+            {
+                t += Time.deltaTime;
+                float a = curve.Evaluate(t);
+                img.color = new Color(0f, 0f, 0f, a);
+                yield return 0;
+            }
         }
         if (scene >= 0)
             SceneManager.LoadScene(scene);
+        fadedOut = true;
     }
 }

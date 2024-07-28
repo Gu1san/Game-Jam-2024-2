@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public float CurrentFood { get; private set; }
     public float CurrentWater { get; private set; }
     public float CurrentSatisfaction { get; private set; }
-    public float CurrentRemedy { get; private set; }
+    public float CurrentMoney { get; private set; }
     public int CurrentDay { get; private set; } = 1;
     public int MaximizedStatus { get; private set; } = 0;
 
@@ -25,17 +25,17 @@ public class GameManager : MonoBehaviour
 
     private bool isFoodMaximized = false;
     private bool isSatisfactionMaximized = false;
-    private bool isRemedyMaximized = false;
+    private bool isMoneyMaximized = false;
     private bool isWaterMaximized = false;
 
     readonly Object[][] events = new Object[3][];
 
     public DayMoments DayMoment { get; private set; }
 
-    public ChoiceInfluence lastStatus { get; private set; } = new() {
+    public ChoiceInfluence LastStatus { get; private set; } = new() {
         food = 50,
         water = 50,
-        remedy = 50,
+        money = 50,
         satisfaction = 50
     };
 
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         GetEvents();
         CurrentFood = 50;
         CurrentWater = 50;
-        CurrentRemedy = 50;
+        CurrentMoney = 50;
         CurrentSatisfaction = 50;
         StartNewDay();
         UIManager.Instance.UpdateSliders();
@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
     {
         GameObject npc = Instantiate(currentEvent.npcModel, npcSpawn.position, npcSpawn.rotation, npcSpawn);
         npc.GetComponent<Animator>().CrossFade(currentEvent.npcPose, 0);
-        Debug.Log(npc.name);
         UIManager.Instance.ShowEvent(currentEvent);
     }
 
@@ -76,10 +75,10 @@ public class GameManager : MonoBehaviour
         ChoiceInfluence influence = choice.influence;
         CurrentFood = Mathf.Clamp(CurrentFood + influence.food, 0, MaxStatusValue);
         CurrentSatisfaction = Mathf.Clamp(CurrentSatisfaction + influence.satisfaction, 0, MaxStatusValue);
-        CurrentRemedy = Mathf.Clamp(CurrentRemedy + influence.remedy, 0, MaxStatusValue);
+        CurrentMoney = Mathf.Clamp(CurrentMoney + influence.money, 0, MaxStatusValue);
         CurrentWater = Mathf.Clamp(CurrentWater + influence.water, 0, MaxStatusValue);
         UIManager.Instance.UpdateSliders();
-        if (CurrentFood <= 0 || CurrentWater <= 0 || CurrentRemedy <= 0 || CurrentSatisfaction <= 0)
+        if (CurrentFood <= 0 || CurrentWater <= 0 || CurrentMoney <= 0 || CurrentSatisfaction <= 0)
         {
             UIManager.Instance.GameOver();
             return;
@@ -99,10 +98,10 @@ public class GameManager : MonoBehaviour
             MaximizedStatus++;
             isSatisfactionMaximized = true;
         }
-        if (CurrentRemedy >= MaxStatusValue && !isRemedyMaximized)
+        if (CurrentMoney >= MaxStatusValue && !isMoneyMaximized)
         {
             MaximizedStatus++;
-            isRemedyMaximized = true;
+            isMoneyMaximized = true;
         }
         UIManager.Instance.HideEvent();
         Destroy(npcSpawn.GetChild(0).gameObject);
@@ -136,10 +135,10 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ShowReport();
         }
         DayMoment = DayMoments.Morning;
-        lastStatus = new() { 
+        LastStatus = new() { 
             food = CurrentFood,
             water = CurrentWater,
-            remedy = CurrentRemedy,
+            money = CurrentMoney,
             satisfaction = CurrentSatisfaction
         };
     }

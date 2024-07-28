@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
-  m_Name: Event1
+  m_Name: MoneyEvent 3
   m_EditorClassIdentifier: 
-  speakerName: Carlos
-  text: "Este \xE9 um evento da noite"
+  speakerName: Gestor de recursos
+  text: "Precisamos de melhores condi\xE7\xF5es para armazenar os mantimentos..."
   choices:
-  - text: Teste 1
+  - text: Ampliar os armazens
     influence:
-      remedy: 45
-      food: 30
-      water: 45
-      satisfaction: 34
-  - text: Teste 2
+      remedy: -30
+      food: 10
+      water: 10
+      satisfaction: -20
+  - text: Deveriamos economizar...
     influence:
-      remedy: 24
-      food: 45
-      water: 56
-      satisfaction: 23
+      remedy: 10
+      food: -20
+      water: -10
+      satisfaction: 20
   npcModel: {fileID: 7562141382600704459, guid: 61cba7ba993dc3447b4270fae459eeae, type: 3}
-  npcPose: Complimenting
+  npcPose: Questioning
