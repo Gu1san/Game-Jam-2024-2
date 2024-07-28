@@ -17,13 +17,13 @@ MonoBehaviour:
   choices:
   - text: Sim
     influence:
-      remedy: -30
+      money: -30
       food: 30
       water: -20
       satisfaction: 20
   - text: "N\xE3o"
     influence:
-      remedy: 10
+      money: 10
       food: -10
       water: -10
       satisfaction: -20

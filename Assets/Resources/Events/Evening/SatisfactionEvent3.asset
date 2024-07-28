@@ -17,13 +17,13 @@ MonoBehaviour:
   choices:
   - text: Realocar os moradores durante os reparos
     influence:
-      remedy: -20
+      money: -20
       food: 10
       water: 10
       satisfaction: -30
   - text: realizar os reparos sem realocar os moradores
     influence:
-      remedy: 20
+      money: 20
       food: -10
       water: -10
       satisfaction: -10

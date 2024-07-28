@@ -17,13 +17,13 @@ MonoBehaviour:
   choices:
   - text: Ampliar os armazens
     influence:
-      remedy: -30
+      money: -20
       food: 10
       water: 10
       satisfaction: -20
   - text: Deveriamos economizar...
     influence:
-      remedy: 10
+      money: 10
       food: -20
       water: -10
       satisfaction: 20

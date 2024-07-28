@@ -17,13 +17,13 @@ MonoBehaviour:
   choices:
   - text: "Estocar \xE1gua"
     influence:
-      remedy: 10
+      money: 10
       food: -10
       water: 20
       satisfaction: -20
   - text: "N\xE3o estocar"
     influence:
-      remedy: -10
+      money: -10
       food: 10
       water: -10
       satisfaction: 10

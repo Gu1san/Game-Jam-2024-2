@@ -17,13 +17,13 @@ MonoBehaviour:
   choices:
   - text: Vamos dividir!
     influence:
-      remedy: 10
+      money: 10
       food: 20
       water: -30
       satisfaction: -20
   - text: "N\xE3o temos muita sobrando..."
     influence:
-      remedy: 0
+      money: 0
       food: -10
       water: 0
       satisfaction: 10

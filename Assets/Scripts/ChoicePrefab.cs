@@ -22,4 +22,14 @@ public class ChoicePrefab : MonoBehaviour
     {
         choice.MakeChoice();
     }
+
+    public void MouseEnter()
+    {
+        UIManager.Instance.HighlightSliders(choice.influence);
+    }
+
+    public void MouseExit()
+    {
+        UIManager.Instance.UnhighlightSliders();
+    }
 }

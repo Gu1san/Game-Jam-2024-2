@@ -18,13 +18,13 @@ MonoBehaviour:
   choices:
   - text: Trocar
     influence:
-      remedy: 30
+      money: 30
       food: 20
       water: -20
       satisfaction: -10
   - text: "N\xE3o trocar"
     influence:
-      remedy: 0
+      money: 0
       food: -10
       water: 10
       satisfaction: 10

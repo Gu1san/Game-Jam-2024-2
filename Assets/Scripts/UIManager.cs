@@ -18,10 +18,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] ChoicePrefab[] displayChoices;
     [SerializeField] GameObject reportPanel;
     [SerializeField] GameObject endGamePanel;
-    public Image foodSlider;
-    public Image waterSlider;
-    public Image moneySlider;
-    public Image satisfactionSlider;
+    [SerializeField] Color highlightColor;
+    [SerializeField] Image foodSlider;
+    [SerializeField] Image waterSlider;
+    [SerializeField] Image moneySlider;
+    [SerializeField] Image satisfactionSlider;
+    [SerializeField] Image dayMomentImage;
+    [SerializeField] Sprite[] dayMomentSprites;
     SceneFader fader;
 
     private void Awake()
@@ -81,7 +84,7 @@ public class UIManager : MonoBehaviour
         {
             fader.FadeOut();
         }
-        dayText.text = "Dia " + GameManager.Instance.CurrentDay.ToString();
+        dayText.text = GameManager.Instance.CurrentDay.ToString();
         switch ((int)GameManager.Instance.DayMoment)
         {
             case 0:
@@ -94,6 +97,7 @@ public class UIManager : MonoBehaviour
                 dayMomentText.text = "Noite";
                 break;
         }
+        dayMomentImage.sprite = dayMomentSprites[(int)GameManager.Instance.DayMoment];
         fader.FadeInScene();
     }
 
@@ -147,6 +151,34 @@ public class UIManager : MonoBehaviour
             endGameText.text = "Com a sua falta de tratamento humanitário, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
         }
         endGamePanel.SetActive(true);
+    }
+
+    public void HighlightSliders(ChoiceInfluence influences)
+    {
+        if(influences.food != 0)
+        {
+            foodSlider.color = highlightColor;
+        }
+        if(influences.water != 0)
+        {
+            waterSlider.color = highlightColor;
+        }
+        if(influences.money != 0)
+        {
+            moneySlider.color = highlightColor;
+        }
+        if(influences.satisfaction != 0)
+        {
+            satisfactionSlider.color = highlightColor;
+        }
+    }
+
+    public void UnhighlightSliders()
+    {
+        foodSlider.color = Color.white;
+        waterSlider.color = Color.white;
+        moneySlider.color = Color.white;
+        satisfactionSlider.color = Color.white;
     }
 
     IEnumerator UpdateSlidersSmoothly(float[] newValues)

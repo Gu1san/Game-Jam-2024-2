@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void ChoiceWasMade(EventChoice choice)
     {
+        UIManager.Instance.UnhighlightSliders();
         ChoiceInfluence influence = choice.influence;
         CurrentFood = Mathf.Clamp(CurrentFood + influence.food, 0, MaxStatusValue);
         CurrentSatisfaction = Mathf.Clamp(CurrentSatisfaction + influence.satisfaction, 0, MaxStatusValue);
