@@ -19,10 +19,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject reportPanel;
     [SerializeField] GameObject endGamePanel;
     [SerializeField] Color highlightColor;
-    public Image foodSlider;
-    public Image waterSlider;
-    public Image moneySlider;
-    public Image satisfactionSlider;
+    [SerializeField] Image foodSlider;
+    [SerializeField] Image waterSlider;
+    [SerializeField] Image moneySlider;
+    [SerializeField] Image satisfactionSlider;
+    [SerializeField] Image dayMomentImage;
+    [SerializeField] Sprite[] dayMomentSprites;
     SceneFader fader;
 
     private void Awake()
@@ -82,7 +84,7 @@ public class UIManager : MonoBehaviour
         {
             fader.FadeOut();
         }
-        dayText.text = "Dia " + GameManager.Instance.CurrentDay.ToString();
+        dayText.text = GameManager.Instance.CurrentDay.ToString();
         switch ((int)GameManager.Instance.DayMoment)
         {
             case 0:
@@ -95,6 +97,7 @@ public class UIManager : MonoBehaviour
                 dayMomentText.text = "Noite";
                 break;
         }
+        dayMomentImage.sprite = dayMomentSprites[(int)GameManager.Instance.DayMoment];
         fader.FadeInScene();
     }
 
