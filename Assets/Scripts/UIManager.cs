@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] ChoicePrefab[] displayChoices;
     [SerializeField] GameObject reportPanel;
     [SerializeField] GameObject endGamePanel;
+    [SerializeField] Color highlightColor;
     public Image foodSlider;
     public Image waterSlider;
     public Image moneySlider;
@@ -147,6 +148,34 @@ public class UIManager : MonoBehaviour
             endGameText.text = "Com a sua falta de tratamento humanitário, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
         }
         endGamePanel.SetActive(true);
+    }
+
+    public void HighlightSliders(ChoiceInfluence influences)
+    {
+        if(influences.food != 0)
+        {
+            foodSlider.color = highlightColor;
+        }
+        if(influences.water != 0)
+        {
+            waterSlider.color = highlightColor;
+        }
+        if(influences.money != 0)
+        {
+            moneySlider.color = highlightColor;
+        }
+        if(influences.satisfaction != 0)
+        {
+            satisfactionSlider.color = highlightColor;
+        }
+    }
+
+    public void UnhighlightSliders()
+    {
+        foodSlider.color = Color.white;
+        waterSlider.color = Color.white;
+        moneySlider.color = Color.white;
+        satisfactionSlider.color = Color.white;
     }
 
     IEnumerator UpdateSlidersSmoothly(float[] newValues)
