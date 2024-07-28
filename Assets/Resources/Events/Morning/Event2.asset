@@ -19,13 +19,13 @@ MonoBehaviour:
     influence:
       remedy: 10
       food: 40
-      water: -50
-      satisfaction: -15
+      water: 40
+      satisfaction: 0
   - text: b
     influence:
       remedy: 0
       food: 0
       water: 0
       satisfaction: 0
-  npcModel: {fileID: 919132149155446097, guid: d2dd7680a9c28ca4092b69a0338eaa76, type: 3}
-  npcPose: Complimenting
+  npcModel: {fileID: 4480439119555948796, guid: 0a4a5b6de4b32bf4eb78d417b76f3255, type: 3}
+  npcPose: Idea

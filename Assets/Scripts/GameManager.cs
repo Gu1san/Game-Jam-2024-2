@@ -11,18 +11,22 @@ public class GameManager : MonoBehaviour
         Evening,
         Night
     }
-    public float MaxFood { get; private set; } = 100;
+    public float MaxStatusValue { get; private set; } = 100;
     public float CurrentFood { get; private set; }
-    public float MaxWater { get; private set; } = 100;
     public float CurrentWater { get; private set; }
-    public float MaxSatisfaction { get; private set; } = 100;
     public float CurrentSatisfaction { get; private set; }
-    public float MaxRemedy { get; private set; } = 100;
     public float CurrentRemedy { get; private set; }
     public int CurrentDay { get; private set; } = 1;
+    public int MaximizedStatus { get; private set; } = 0;
 
     [SerializeField] Event currentEvent;
     [SerializeField] Transform npcSpawn;
+    [SerializeField] int daysDuration = 10;
+
+    private bool isFoodMaximized = false;
+    private bool isSatisfactionMaximized = false;
+    private bool isRemedyMaximized = false;
+    private bool isWaterMaximized = false;
 
     readonly Object[][] events = new Object[3][];
 
@@ -70,15 +74,35 @@ public class GameManager : MonoBehaviour
     public void ChoiceWasMade(EventChoice choice)
     {
         ChoiceInfluence influence = choice.influence;
-        CurrentFood = Mathf.Clamp(CurrentFood + influence.food, 0, MaxFood);
-        CurrentSatisfaction = Mathf.Clamp(CurrentSatisfaction + influence.satisfaction, 0, MaxSatisfaction);
-        CurrentRemedy = Mathf.Clamp(CurrentRemedy + influence.remedy, 0, MaxRemedy);
-        CurrentWater = Mathf.Clamp(CurrentWater + influence.water, 0, MaxWater);
+        CurrentFood = Mathf.Clamp(CurrentFood + influence.food, 0, MaxStatusValue);
+        CurrentSatisfaction = Mathf.Clamp(CurrentSatisfaction + influence.satisfaction, 0, MaxStatusValue);
+        CurrentRemedy = Mathf.Clamp(CurrentRemedy + influence.remedy, 0, MaxStatusValue);
+        CurrentWater = Mathf.Clamp(CurrentWater + influence.water, 0, MaxStatusValue);
         UIManager.Instance.UpdateSliders();
-        if(CurrentFood <= 0 || CurrentWater <= 0 || CurrentRemedy <= 0 || CurrentSatisfaction <= 0)
+        if (CurrentFood <= 0 || CurrentWater <= 0 || CurrentRemedy <= 0 || CurrentSatisfaction <= 0)
         {
             UIManager.Instance.GameOver();
             return;
+        }
+        if (CurrentFood >= MaxStatusValue && !isFoodMaximized)
+        {
+            MaximizedStatus++;
+            isFoodMaximized = true;
+        }
+        if (CurrentWater >= MaxStatusValue && !isWaterMaximized)
+        {
+            MaximizedStatus++;
+            isWaterMaximized = true;
+        }
+        if (CurrentSatisfaction >= MaxStatusValue && !isSatisfactionMaximized)
+        {
+            MaximizedStatus++;
+            isSatisfactionMaximized = true;
+        }
+        if (CurrentRemedy >= MaxStatusValue && !isRemedyMaximized)
+        {
+            MaximizedStatus++;
+            isRemedyMaximized = true;
         }
         UIManager.Instance.HideEvent();
         Destroy(npcSpawn.GetChild(0).gameObject);
@@ -89,6 +113,11 @@ public class GameManager : MonoBehaviour
     {
         if(DayMoment == DayMoments.Night)
         {
+            if(CurrentDay >= daysDuration)
+            {
+                UIManager.Instance.WinGame();
+                return;
+            }
             CurrentDay++;
             StartNewDay();
         }

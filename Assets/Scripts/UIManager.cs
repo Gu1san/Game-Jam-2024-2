@@ -13,10 +13,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text dayText;
     [SerializeField] TMP_Text dayMomentText;
     [SerializeField] TMP_Text reportText;
-    [SerializeField] TMP_Text gameOverText;
+    [SerializeField] TMP_Text endGameTitle;
+    [SerializeField] TMP_Text endGameText;
     [SerializeField] ChoicePrefab[] displayChoices;
     [SerializeField] GameObject reportPanel;
-    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject endGamePanel;
     public Slider foodSlider;
     public Slider waterSlider;
     public Slider remedySlider;
@@ -99,33 +100,53 @@ public class UIManager : MonoBehaviour
     public void UpdateSliders()
     {
         float[] newValues = {
-            GameManager.Instance.CurrentFood / GameManager.Instance.MaxFood,
-            GameManager.Instance.CurrentWater / GameManager.Instance.MaxWater,
-            GameManager.Instance.CurrentRemedy / GameManager.Instance.MaxRemedy,
-            GameManager.Instance.CurrentSatisfaction / GameManager.Instance.MaxSatisfaction
+            GameManager.Instance.CurrentFood / GameManager.Instance.MaxStatusValue,
+            GameManager.Instance.CurrentWater / GameManager.Instance.MaxStatusValue,
+            GameManager.Instance.CurrentRemedy / GameManager.Instance.MaxStatusValue,
+            GameManager.Instance.CurrentSatisfaction / GameManager.Instance.MaxStatusValue
         };
         StartCoroutine(UpdateSlidersSmoothly(newValues));
+    }
+
+    public void WinGame()
+    {
+        fader.FadeOut();
+        endGameTitle.text = "Missão concluída!";
+        if(GameManager.Instance.MaximizedStatus is 0 or 1)
+        {
+            endGameText.text = "Você cumpriu seus deveres dentro do que era esperado. Parabéns!";
+        }
+        else if(GameManager.Instance.MaximizedStatus is 2 or 3)
+        {
+            endGameText.text = "Você se saiu muito bem superando as expectativas. Parabéns!";
+        }
+        else if(GameManager.Instance.MaximizedStatus >= 4)
+        {
+            endGameText.text = "Você realizou um trabalho muito acima de tudo que era experado e garantiu a qualidade de vida de milhares de pessoas. Parabéns!";
+        }
+        endGamePanel.SetActive(true);
     }
 
     public void GameOver()
     {
         fader.FadeOut();
+        endGameTitle.text = "Missão fracassada";
         if(GameManager.Instance.CurrentFood <= 0)
         {
-            gameOverText.text = "Depois de sua má gestão com os alimentos, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
+            endGameText.text = "Depois de sua má gestão com os alimentos, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
         }
         else if (GameManager.Instance.CurrentWater <= 0)
         {
-            gameOverText.text = "Depois de sua má gestão com a água do local, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
+            endGameText.text = "Depois de sua má gestão com a água do local, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
         }
         else if(GameManager.Instance.CurrentRemedy <= 0)
         {
-            gameOverText.text = "Depois de sua má gestão com os medicamentos, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
+            endGameText.text = "Depois de sua má gestão com os medicamentos, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
         }else if (GameManager.Instance.CurrentSatisfaction <= 0)
         {
-            gameOverText.text = "Com a sua falta de tratamento humanitário, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
+            endGameText.text = "Com a sua falta de tratamento humanitário, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
         }
-        gameOverPanel.SetActive(true);
+        endGamePanel.SetActive(true);
     }
 
     IEnumerator UpdateSlidersSmoothly(float[] newValues)

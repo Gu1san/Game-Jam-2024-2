@@ -19,8 +19,8 @@ MonoBehaviour:
     influence:
       remedy: 20
       food: 30
-      water: -50
-      satisfaction: -8
+      water: 0
+      satisfaction: 40
   - text: Teste 2
     influence:
       remedy: 0
@@ -28,4 +28,4 @@ MonoBehaviour:
       water: 0
       satisfaction: 0
   npcModel: {fileID: 2470863721718444583, guid: b872a7bebd832ac4ebfab4eb996cf155, type: 3}
-  npcPose: Complimenting
+  npcPose: Explaning

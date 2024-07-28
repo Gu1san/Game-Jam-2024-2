@@ -27,5 +27,5 @@ MonoBehaviour:
       food: 0
       water: 0
       satisfaction: 0
-  npcModel: {fileID: 919132149155446097, guid: d9f39eb83a18bd64c8e11ce31c08d1a5, type: 3}
+  npcModel: {fileID: 2470863721718444583, guid: b872a7bebd832ac4ebfab4eb996cf155, type: 3}
   npcPose: Complimenting

@@ -17,15 +17,15 @@ MonoBehaviour:
   choices:
   - text: Teste 1
     influence:
-      remedy: -40
+      remedy: 40
       food: 30
       water: 20
-      satisfaction: 0
+      satisfaction: 50
   - text: Teste 2
     influence:
       remedy: 0
       food: 0
       water: 0
-      satisfaction: 0
-  npcModel: {fileID: 919132149155446097, guid: 8a3ed9848e88c644bac267ad0c13bf44, type: 3}
-  npcPose: Complimenting
+      satisfaction: 50
+  npcModel: {fileID: 926960802237525648, guid: 4392b5eab13e6e9429d837c347423d07, type: 3}
+  npcPose: Questioning

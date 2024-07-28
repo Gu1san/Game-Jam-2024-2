@@ -1481,7 +1481,7 @@ GameObject:
   - component: {fileID: 352953357}
   - component: {fileID: 352953356}
   m_Layer: 5
-  m_Name: GameOver
+  m_Name: EndGamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1716,8 +1716,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 316.374, y: -87.573}
-  m_SizeDelta: {x: 548.747, y: 85.145}
+  m_AnchoredPosition: {x: 482.58, y: -62}
+  m_SizeDelta: {x: 923.908, y: 85.145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &408696008
 CanvasRenderer:
@@ -1774,13 +1774,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.84
-  m_fontSizeBase: 60.84
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2886,8 +2886,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 952.633, y: -204.791}
-  m_SizeDelta: {x: 1821.266, y: 114.729}
+  m_AnchoredPosition: {x: 957.01, y: -180.698}
+  m_SizeDelta: {x: 1872.8, y: 152.245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &822121567
 CanvasRenderer:
@@ -2944,12 +2944,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.84
+  m_fontSize: 55
   m_fontSizeBase: 60.84
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 55
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -5276,7 +5276,7 @@ GameObject:
   - component: {fileID: 1414248948}
   - component: {fileID: 1414248947}
   m_Layer: 5
-  m_Name: Topics
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5436,12 +5436,13 @@ MonoBehaviour:
   dayText: {fileID: 1641319147}
   dayMomentText: {fileID: 356278607}
   reportText: {fileID: 188298188}
-  gameOverText: {fileID: 1414248947}
+  endGameTitle: {fileID: 615861887}
+  endGameText: {fileID: 1414248947}
   displayChoices:
   - {fileID: 1402690244}
   - {fileID: 1389696477}
   reportPanel: {fileID: 1321525355}
-  gameOverPanel: {fileID: 352953354}
+  endGamePanel: {fileID: 352953354}
   foodSlider: {fileID: 1739239292}
   waterSlider: {fileID: 1546557318}
   remedySlider: {fileID: 75444002}
@@ -7158,6 +7159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentEvent: {fileID: 0}
   npcSpawn: {fileID: 414834441}
+  daysDuration: 3
 --- !u!1 &1744514550
 GameObject:
   m_ObjectHideFlags: 0
