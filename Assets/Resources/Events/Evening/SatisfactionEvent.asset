@@ -18,13 +18,13 @@ MonoBehaviour:
   choices:
   - text: "Ampliar a quantidade de habita\xE7\xF5es"
     influence:
-      remedy: -20
+      money: -20
       food: -10
       water: -10
       satisfaction: 30
   - text: "Alocar os recem chegados nas habita\xE7\xF5es existentes"
     influence:
-      remedy: 20
+      money: 20
       food: 10
       water: 10
       satisfaction: 0

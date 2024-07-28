@@ -18,13 +18,13 @@ MonoBehaviour:
   choices:
   - text: Racionar mantimentos
     influence:
-      remedy: 10
+      money: 10
       food: 20
       water: -10
       satisfaction: -20
   - text: Distribuir mantimentos normalmente
     influence:
-      remedy: -10
+      money: -10
       food: -20
       water: -20
       satisfaction: 10

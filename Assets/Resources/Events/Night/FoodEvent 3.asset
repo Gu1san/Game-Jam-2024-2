@@ -18,13 +18,13 @@ MonoBehaviour:
   choices:
   - text: Vou providenciar
     influence:
-      remedy: -20
+      money: -20
       food: -30
       water: -20
       satisfaction: 20
   - text: "Acho que n\xE3o teremos m\xE3o de obra"
     influence:
-      remedy: 10
+      money: 10
       food: -30
       water: 10
       satisfaction: -20

@@ -17,13 +17,13 @@ MonoBehaviour:
   choices:
   - text: "Ampliar o sistema de irriga\xE7\xE3o"
     influence:
-      remedy: -20
+      money: -20
       food: 15
       water: -20
       satisfaction: 10
   - text: "N\xE3o \xE9 necess\xE1rio"
     influence:
-      remedy: 0
+      money: 0
       food: -10
       water: 0
       satisfaction: -5

@@ -17,13 +17,13 @@ MonoBehaviour:
   choices:
   - text: Vender o excedente
     influence:
-      remedy: 20
+      money: 20
       food: -10
       water: 0
       satisfaction: -10
   - text: Estocar o excedente
     influence:
-      remedy: 0
+      money: 0
       food: 20
       water: 0
       satisfaction: 10
