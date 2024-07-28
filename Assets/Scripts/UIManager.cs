@@ -18,10 +18,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] ChoicePrefab[] displayChoices;
     [SerializeField] GameObject reportPanel;
     [SerializeField] GameObject endGamePanel;
-    public Slider foodSlider;
-    public Slider waterSlider;
-    public Slider remedySlider;
-    public Slider satisfactionSlider;
+    public Image foodSlider;
+    public Image waterSlider;
+    public Image moneySlider;
+    public Image satisfactionSlider;
     SceneFader fader;
 
     private void Awake()
@@ -59,10 +59,10 @@ public class UIManager : MonoBehaviour
     public void ShowReport()
     {
         fader.FadeOut();
-        float foodDiference = GameManager.Instance.CurrentFood - GameManager.Instance.lastStatus.food;
-        float waterDiference = GameManager.Instance.CurrentWater - GameManager.Instance.lastStatus.water;
-        float remedyDiference = GameManager.Instance.CurrentRemedy - GameManager.Instance.lastStatus.remedy;
-        float satisfactionDiference = GameManager.Instance.CurrentSatisfaction - GameManager.Instance.lastStatus.satisfaction;
+        float foodDiference = GameManager.Instance.CurrentFood - GameManager.Instance.LastStatus.food;
+        float waterDiference = GameManager.Instance.CurrentWater - GameManager.Instance.LastStatus.water;
+        float remedyDiference = GameManager.Instance.CurrentMoney - GameManager.Instance.LastStatus.money;
+        float satisfactionDiference = GameManager.Instance.CurrentSatisfaction - GameManager.Instance.LastStatus.satisfaction;
         reportText.text = $"{foodDiference}\n{waterDiference}\n{remedyDiference}\n{satisfactionDiference}";
         reportPanel.SetActive(true);
     }
@@ -102,7 +102,7 @@ public class UIManager : MonoBehaviour
         float[] newValues = {
             GameManager.Instance.CurrentFood / GameManager.Instance.MaxStatusValue,
             GameManager.Instance.CurrentWater / GameManager.Instance.MaxStatusValue,
-            GameManager.Instance.CurrentRemedy / GameManager.Instance.MaxStatusValue,
+            GameManager.Instance.CurrentMoney / GameManager.Instance.MaxStatusValue,
             GameManager.Instance.CurrentSatisfaction / GameManager.Instance.MaxStatusValue
         };
         StartCoroutine(UpdateSlidersSmoothly(newValues));
@@ -139,7 +139,7 @@ public class UIManager : MonoBehaviour
         {
             endGameText.text = "Depois de sua má gestão com a água do local, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
         }
-        else if(GameManager.Instance.CurrentRemedy <= 0)
+        else if(GameManager.Instance.CurrentMoney <= 0)
         {
             endGameText.text = "Depois de sua má gestão com os medicamentos, a ONU decidiu que você não está apto a continuar gerenciando o campo de refugiados";
         }else if (GameManager.Instance.CurrentSatisfaction <= 0)
@@ -152,18 +152,18 @@ public class UIManager : MonoBehaviour
     IEnumerator UpdateSlidersSmoothly(float[] newValues)
     {
         float time = 0;
-        float startFood = foodSlider.value;
-        float startWater = waterSlider.value;
-        float startRemedy = remedySlider.value;
-        float startSatisfaction = satisfactionSlider.value;
+        float startFood = foodSlider.fillAmount;
+        float startWater = waterSlider.fillAmount;
+        float startRemedy = moneySlider.fillAmount;
+        float startSatisfaction = satisfactionSlider.fillAmount;
         while (time < .5f)
         {
             time += Time.deltaTime;
             float t = time / .5f;
-            foodSlider.value = Mathf.Lerp(startFood, newValues[0], t);
-            waterSlider.value = Mathf.Lerp(startWater, newValues[1], t);
-            remedySlider.value = Mathf.Lerp(startRemedy, newValues[2], t);
-            satisfactionSlider.value = Mathf.Lerp(startSatisfaction, newValues[3], t);
+            foodSlider.fillAmount = Mathf.Lerp(startFood, newValues[0], t);
+            waterSlider.fillAmount = Mathf.Lerp(startWater, newValues[1], t);
+            moneySlider.fillAmount = Mathf.Lerp(startRemedy, newValues[2], t);
+            satisfactionSlider.fillAmount = Mathf.Lerp(startSatisfaction, newValues[3], t);
             yield return null;
         }
     }
