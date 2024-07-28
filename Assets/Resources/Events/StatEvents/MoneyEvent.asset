@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
+  m_Name: MoneyEvent
+  m_EditorClassIdentifier: 
+  speakerName: Gestor de recursos
+  text: "Um acampamento pr\xF3ximo deseja trocar comida e recursos por um pouco da
+    nossa \xE1gua"
+  choices:
+  - text: Trocar
+    influence:
+      remedy: 30
+      food: 20
+      water: -20
+      satisfaction: -10
+  - text: "N\xE3o trocar"
+    influence:
+      remedy: 0
+      food: -10
+      water: 10
+      satisfaction: 10
+  npcModel: {fileID: 7562141382600704459, guid: 61cba7ba993dc3447b4270fae459eeae, type: 3}
+  npcPose: Complimenting
