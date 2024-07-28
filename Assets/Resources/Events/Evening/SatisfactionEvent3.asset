@@ -10,23 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52b2e8c2d18c0274f94c9fa98acd66ce, type: 3}
-  m_Name: SatisfactionEvent01
+  m_Name: SatisfactionEvent3
   m_EditorClassIdentifier: 
   speakerName: Representante popular
-  text: "As habita\xE7\xF5es atuais n\xE3o s\xE3o suficientes para atender o n\xFAmero
-    de refugiados..."
+  text: Uma tempestade nos pegou de surpresa e avariou alguns dos abrigos!
   choices:
-  - text: "Ampliar a quantidade de habita\xE7\xF5es"
+  - text: Realocar os moradores durante os reparos
     influence:
       remedy: -20
-      food: -10
-      water: -10
-      satisfaction: 30
-  - text: "Alocar os recem chegados nas habita\xE7\xF5es existentes"
-    influence:
-      remedy: 20
       food: 10
       water: 10
-      satisfaction: 0
+      satisfaction: -30
+  - text: realizar os reparos sem realocar os moradores
+    influence:
+      remedy: 20
+      food: -10
+      water: -10
+      satisfaction: -10
   npcModel: {fileID: 4480439119555948796, guid: 0a4a5b6de4b32bf4eb78d417b76f3255, type: 3}
-  npcPose: Complimenting
+  npcPose: Sad
