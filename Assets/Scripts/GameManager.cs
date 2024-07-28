@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
     {
         GameObject npc = Instantiate(currentEvent.npcModel, npcSpawn.position, npcSpawn.rotation, npcSpawn);
         npc.GetComponent<Animator>().CrossFade(currentEvent.npcPose, 0);
-        Debug.Log(npc.name);
         UIManager.Instance.ShowEvent(currentEvent);
     }
 
