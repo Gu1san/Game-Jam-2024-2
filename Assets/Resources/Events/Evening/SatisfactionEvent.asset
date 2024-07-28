@@ -24,9 +24,9 @@ MonoBehaviour:
       satisfaction: 30
   - text: "Alocar os recem chegados nas habita\xE7\xF5es existentes"
     influence:
-      money: 20
-      food: 10
-      water: 10
-      satisfaction: 0
+      money: 10
+      food: 0
+      water: 0
+      satisfaction: -10
   npcModel: {fileID: 4480439119555948796, guid: 0a4a5b6de4b32bf4eb78d417b76f3255, type: 3}
   npcPose: Complimenting

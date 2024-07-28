@@ -17,15 +17,15 @@ MonoBehaviour:
   choices:
   - text: Concordo!
     influence:
-      remedy: 0
+      money: 0
       food: 20
       water: 10
-      satisfaction: -5
+      satisfaction: 10
   - text: "Hm... n\xE3o sei"
     influence:
-      remedy: 0
+      money: 0
       food: -10
       water: 0
-      satisfaction: -10
+      satisfaction: -15
   npcModel: {fileID: 2470863721718444583, guid: b872a7bebd832ac4ebfab4eb996cf155, type: 3}
   npcPose: Explaning

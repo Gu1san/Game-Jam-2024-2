@@ -18,14 +18,14 @@ MonoBehaviour:
   - text: "Estocar \xE1gua"
     influence:
       money: 10
-      food: -10
+      food: 0
       water: 20
-      satisfaction: -20
+      satisfaction: 0
   - text: "N\xE3o estocar"
     influence:
       money: -10
-      food: 10
+      food: 0
       water: -10
-      satisfaction: 10
+      satisfaction: -10
   npcModel: {fileID: 926960802237525648, guid: 4392b5eab13e6e9429d837c347423d07, type: 3}
   npcPose: Questioning

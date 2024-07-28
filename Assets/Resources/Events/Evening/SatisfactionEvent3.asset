@@ -17,15 +17,15 @@ MonoBehaviour:
   choices:
   - text: Realocar os moradores durante os reparos
     influence:
-      money: -20
-      food: 10
-      water: 10
-      satisfaction: -30
-  - text: realizar os reparos sem realocar os moradores
-    influence:
-      money: 20
-      food: -10
-      water: -10
+      money: -10
+      food: 0
+      water: 0
       satisfaction: -10
+  - text: Realizar os reparos sem realocar os moradores
+    influence:
+      money: -10
+      food: 0
+      water: 0
+      satisfaction: -30
   npcModel: {fileID: 4480439119555948796, guid: 0a4a5b6de4b32bf4eb78d417b76f3255, type: 3}
   npcPose: Sad
