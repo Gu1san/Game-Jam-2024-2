@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image satisfactionSlider;
     [SerializeField] Image dayMomentImage;
     [SerializeField] Sprite[] dayMomentSprites;
+    [SerializeField] Material[] skyboxes;
     SceneFader fader;
 
     private void Awake()
@@ -97,7 +98,9 @@ public class UIManager : MonoBehaviour
                 dayMomentText.text = "Noite";
                 break;
         }
-        dayMomentImage.sprite = dayMomentSprites[(int)GameManager.Instance.DayMoment];
+        int momentIndex = (int)GameManager.Instance.DayMoment;
+        RenderSettings.skybox = skyboxes[momentIndex];
+        dayMomentImage.sprite = dayMomentSprites[momentIndex];
         fader.FadeInScene();
     }
 
