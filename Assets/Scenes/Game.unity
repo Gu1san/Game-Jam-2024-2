@@ -6148,7 +6148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Comida:\n\xC1gua:\nMedicamentos:\nSatisfa\xE7\xE3o popular:"
+  m_text: "Comida:\n\xC1gua:\nDinheiro:\nSatisfa\xE7\xE3o popular:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
