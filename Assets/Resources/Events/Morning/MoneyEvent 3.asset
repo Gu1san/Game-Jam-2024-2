@@ -18,14 +18,14 @@ MonoBehaviour:
   - text: Ampliar os armazens
     influence:
       money: -20
-      food: 10
-      water: 10
-      satisfaction: -20
+      food: 15
+      water: 15
+      satisfaction: 10
   - text: Deveriamos economizar...
     influence:
       money: 10
       food: -20
       water: -10
-      satisfaction: 20
+      satisfaction: -10
   npcModel: {fileID: 7562141382600704459, guid: 61cba7ba993dc3447b4270fae459eeae, type: 3}
   npcPose: Questioning

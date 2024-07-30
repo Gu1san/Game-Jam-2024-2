@@ -18,14 +18,14 @@ MonoBehaviour:
   - text: "Ampliar o sistema de irriga\xE7\xE3o"
     influence:
       money: -20
-      food: 15
+      food: 20
       water: -20
       satisfaction: 10
   - text: "N\xE3o \xE9 necess\xE1rio"
     influence:
       money: 0
       food: -10
-      water: 0
-      satisfaction: -5
+      water: 5
+      satisfaction: -15
   npcModel: {fileID: 926960802237525648, guid: 4392b5eab13e6e9429d837c347423d07, type: 3}
   npcPose: Questioning

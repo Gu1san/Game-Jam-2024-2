@@ -20,7 +20,7 @@ MonoBehaviour:
     influence:
       money: 10
       food: 20
-      water: -10
+      water: 10
       satisfaction: -20
   - text: Distribuir mantimentos normalmente
     influence:

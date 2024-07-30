@@ -19,7 +19,7 @@ MonoBehaviour:
   - text: Vou providenciar
     influence:
       money: -20
-      food: -30
+      food: -15
       water: -20
       satisfaction: 20
   - text: "Acho que n\xE3o teremos m\xE3o de obra"
