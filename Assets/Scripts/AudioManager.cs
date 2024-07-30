@@ -13,7 +13,14 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        LoadVolume();
+        if(PlayerPrefs.HasKey("MainVolume"))
+            LoadVolume();
+        else
+        {
+            ChangeMainVolume();
+            ChangeMusicVolume();
+            ChangeSFXVolume();
+        }
     }
 
     public void ChangeMainVolume()
