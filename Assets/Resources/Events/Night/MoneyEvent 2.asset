@@ -21,7 +21,7 @@ MonoBehaviour:
       food: 0
       water: 0
       satisfaction: 20
-  - text: Utilizar oque ainda temos
+  - text: Utilizar o que ainda temos
     influence:
       money: 10
       food: 0

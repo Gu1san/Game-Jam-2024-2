@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FoodEvent 2
   m_EditorClassIdentifier: 
   speakerName: "Auxiliar comunit\xE1rio"
-  text: "Poderiamos reformar algumas das habita\xE7\xF5es"
+  text: "Poder\xEDamos reformar algumas das habita\xE7\xF5es"
   choices:
   - text: Sim
     influence:

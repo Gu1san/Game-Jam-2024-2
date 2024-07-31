@@ -25,7 +25,7 @@ MonoBehaviour:
     influence:
       money: 10
       food: -10
-      water: -10
+      water: 0
       satisfaction: -10
   npcModel: {fileID: 2470863721718444583, guid: b872a7bebd832ac4ebfab4eb996cf155, type: 3}
   npcPose: Complimenting

@@ -20,7 +20,7 @@ MonoBehaviour:
       money: -10
       food: 0
       water: 0
-      satisfaction: -10
+      satisfaction: 0
   - text: Realizar os reparos sem realocar os moradores
     influence:
       money: -10
