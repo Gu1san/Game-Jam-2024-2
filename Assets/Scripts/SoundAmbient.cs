@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class SoundAmbient : MonoBehaviour
 {
-    void Start()
+    public static SoundAmbient instance;
+    void Awake()
     {
-        DontDestroyOnLoad(this);
-    }
-
-    void Update()
-    {
-        
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }  
+        else
+            Destroy(gameObject);
     }
 }

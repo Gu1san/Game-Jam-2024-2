@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] ChoicePrefab[] displayChoices;
     [SerializeField] GameObject reportPanel;
     [SerializeField] GameObject endGamePanel;
+    [SerializeField] GameObject pausePanel;
     [SerializeField] Color highlightColor;
     [SerializeField] Image foodSlider;
     [SerializeField] Image waterSlider;
@@ -37,6 +38,16 @@ public class UIManager : MonoBehaviour
     {
         fader = GetComponent<SceneFader>();
         UpdateDayInfo();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) &&
+           !reportPanel.activeInHierarchy && 
+           !endGamePanel.activeInHierarchy)
+        {
+            pausePanel.SetActive(true);
+        }
     }
 
     public void ShowEvent(Event eventSO)

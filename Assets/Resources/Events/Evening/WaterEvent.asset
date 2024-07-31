@@ -15,13 +15,13 @@ MonoBehaviour:
   speakerName: "Assistente de ger\xEAncia"
   text: "Poderiamos construir coletores de \xE1gua da chuva!"
   choices:
-  - text: sim
+  - text: Sim
     influence:
       money: -20
-      food: -20
+      food: -10
       water: 30
       satisfaction: 10
-  - text: "n\xE3o"
+  - text: "N\xE3o"
     influence:
       money: 10
       food: 0
