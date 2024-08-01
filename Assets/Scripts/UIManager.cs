@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    [Header("Texts")]
     [SerializeField] TMP_Text speakerName;
     [SerializeField] TMP_Text eventText;
     [SerializeField] TMP_Text dayText;
@@ -15,18 +16,29 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text reportText;
     [SerializeField] TMP_Text endGameTitle;
     [SerializeField] TMP_Text endGameText;
-    [SerializeField] ChoicePrefab[] displayChoices;
+
+    [Header("Panels")]
     [SerializeField] GameObject reportPanel;
     [SerializeField] GameObject endGamePanel;
     [SerializeField] GameObject pausePanel;
-    [SerializeField] Color highlightColor;
+
+    [Header("Sliders")]
     [SerializeField] Image foodSlider;
     [SerializeField] Image waterSlider;
     [SerializeField] Image moneySlider;
     [SerializeField] Image satisfactionSlider;
+
+    [Header("Images/Materials")]
     [SerializeField] Image dayMomentImage;
     [SerializeField] Sprite[] dayMomentSprites;
     [SerializeField] Material[] skyboxes;
+
+    [SerializeField] ChoicePrefab[] displayChoices;
+    [SerializeField] Color highlightColor;
+
+    [Header("Sound")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip openReport;
     SceneFader fader;
 
     private void Awake()
@@ -73,6 +85,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowReport()
     {
+        audioSource.PlayOneShot(openReport);
         fader.FadeOut();
         float foodDiference = GameManager.Instance.CurrentFood - GameManager.Instance.LastStatus.food;
         float waterDiference = GameManager.Instance.CurrentWater - GameManager.Instance.LastStatus.water;
