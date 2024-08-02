@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Color highlightColor;
 
     [Header("Sound")]
-    [SerializeField] AudioSource audioSource;
+    AudioSource audioSource;
     [SerializeField] AudioClip openReport;
     SceneFader fader;
 
@@ -49,6 +49,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         fader = GetComponent<SceneFader>();
+        audioSource = GetComponent<AudioSource>();
         UpdateDayInfo();
     }
 
