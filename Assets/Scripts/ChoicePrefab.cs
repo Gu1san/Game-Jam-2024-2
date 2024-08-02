@@ -7,6 +7,9 @@ public class ChoicePrefab : MonoBehaviour
 {
     public EventChoice choice;
     [SerializeField] TMP_Text text;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip mouseEnterClip;
+    [SerializeField] AudioClip mouseClickClip;
 
     private void OnEnable()
     {
@@ -20,11 +23,13 @@ public class ChoicePrefab : MonoBehaviour
 
     public void OnClick()
     {
+        audioSource.PlayOneShot(mouseClickClip);
         choice.MakeChoice();
     }
 
     public void MouseEnter()
     {
+        audioSource.PlayOneShot(mouseEnterClip);
         UIManager.Instance.HighlightSliders(choice.influence);
     }
 
